@@ -1,6 +1,7 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
+{% if contact %}
   <div class="responsive-table">
     <table class="contacts-table">
       <caption class="table-caption ">
@@ -45,4 +46,10 @@
       </tbody>
     </table>
   </div>
+  {% else %}
+  <div class="single-contact-name">
+      <h1 class="single-contact-name">
+        {{ contact.first_name }} {{ contact.last_name }}
+      </h1>
+  {% endif %}
 {% endblock content %}
