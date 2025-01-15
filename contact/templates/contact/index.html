@@ -1,10 +1,10 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-  {% if page_obj %}
+  {% if page_obj and page_obj.object_list %}
     <div class="responsive-table">
       <table class="contacts-table">
-        <caption class="table-caption ">
+        <caption class="table-caption">
           Contacts
         </caption>
 
@@ -30,16 +30,16 @@
                 </a>
               </td>
               <td class="table-cel">
-                {{ contact.first_name }}
+                {{ contact.first_name|default:"-" }}
               </td>
               <td class="table-cel">
-                {{ contact.last_name }}
+                {{ contact.last_name|default:"-" }}
               </td>
               <td class="table-cel">
-                {{ contact.phone }}
+                {{ contact.phone|default:"-" }}
               </td>
               <td class="table-cel">
-                {{ contact.email }}
+                {{ contact.email|default:"-" }}
               </td>
             </tr>
           {% endfor %}
